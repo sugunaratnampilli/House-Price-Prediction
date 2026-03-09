@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>House Price Prediction</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏠 House Price Prediction</h1>
+<p class="subtitle">Enter house details to estimate the price</p>
+
+<form action="/predict" method="post">
+
+<div class="grid">
+
+<input type="number" name="area" placeholder="Area (sqft)" required>
+<input type="number" name="bedrooms" placeholder="Bedrooms" required>
+<input type="number" name="bathrooms" placeholder="Bathrooms" required>
+<input type="number" name="stories" placeholder="Stories" required>
+<input type="number" name="parking" placeholder="Parking" required>
+
+<select name="mainroad">
+<option value="">Main Road</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<select name="guestroom">
+<option value="">Guest Room</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<select name="basement">
+<option value="">Basement</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<select name="hotwaterheating">
+<option value="">Hot Water Heating</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<select name="airconditioning">
+<option value="">Air Conditioning</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<select name="prefarea">
+<option value="">Preferred Area</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<select name="furnishingstatus">
+<option value="">Furnishing</option>
+<option value="2">Furnished</option>
+<option value="1">Semi Furnished</option>
+<option value="0">Unfurnished</option>
+</select>
+
+</div>
+
+<button type="submit">Predict Price</button>
+
+</form>
+
+<h2 class="result">{{ prediction_text }}</h2>
+
+</div>
+
+</body>
+</html>
